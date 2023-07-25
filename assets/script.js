@@ -18,8 +18,8 @@ let slides = [
 ]
 let currentSlide = 0;
 
-  function showSlide(index) {
-    let slide = slides[index];
+  function showSlide(i) {
+    let slide = slides[i];
     let slider = document.querySelector('.banner-img');
     let img = document.querySelector('.banner-img');
     let tagLine = document.querySelector('#banner p');
@@ -30,7 +30,7 @@ let currentSlide = 0;
     tagLine.innerHTML = slide.tagLine;
 
     dots.forEach((dot, idx) => {
-      dot.classList.toggle('dot_selected', idx === index);
+      dot.classList.toggle('dot_selected', idx === i);
     });
   }
 
