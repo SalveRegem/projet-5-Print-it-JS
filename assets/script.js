@@ -33,31 +33,21 @@ function showSlide(i) {
   });
 }
 const previousButton = document.getElementById("previous-slide");
-previousButton.addEventListener("click" , previousSlide)
+previousButton.addEventListener("click" , changeSlide(-1))
 const nextButton = document.getElementById("next-slide");
-nextButton.addEventListener("click", nextSlide)
+nextButton.addEventListener("click", changeSlide(1))
 
 
-function nextSlide() {
-  // Exemple modulo :  : 2 - (0 * 4 ) = 2  2 % 4 = 2
-  // Exemple modulo : 3 -(0 x 4) = 3
-  // Exeple modulo :  4 - (1 x 4) = 0 ; 4 % 4 = 0
-  // Exemple modulo : 5 - (1 x 4) = 0 ; 5 % 4 = 1
-  currentSlide = currentSlide + 1;
+function changeSlide(direction) {
+  currentSlide = currentSlide + direction
   if (currentSlide >= slides.length) {
     currentSlide = 0;
   }
-  showSlide(currentSlide);
-  console.log("nextslide", currentSlide);
-}
-
-function previousSlide() {
-  currentSlide = currentSlide - 1;
   if (currentSlide < 0) {
-    currentSlide = slides.length - 1;
+    const lastSlide = slides.length - 1
+    currentSlide = lastSlide
   }
   showSlide(currentSlide);
-  console.log("previousSlide", currentSlide);
 }
 
 showSlide(currentSlide);
