@@ -33,9 +33,12 @@ function showSlide(i) {
   });
 }
 const previousButton = document.getElementById("previous-slide");
-previousButton.addEventListener("click" , changeSlide(-1))
+previousButton.addEventListener("click", () => changeSlide(-1));
+
 const nextButton = document.getElementById("next-slide");
-nextButton.addEventListener("click", changeSlide(1))
+nextButton.addEventListener("click", () => changeSlide(1));
+console.log(previousButton);
+console.log(nextButton);
 
 
 function changeSlide(direction) {
@@ -48,6 +51,7 @@ function changeSlide(direction) {
     currentSlide = lastSlide
   }
   showSlide(currentSlide);
+
 }
 
 showSlide(currentSlide);
